@@ -31,7 +31,7 @@ def download_files_from_repo(github_repo, path, token):
     return texts_of_files, texts
 
 
-def save_pos_tags_to_json(pos_tags, filename):
+def save_to_json(pos_tags, filename):
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(pos_tags, file, ensure_ascii=False, indent=4)
 
@@ -84,31 +84,7 @@ if __name__ == "__main__":
                 else:
                     pos_tags[key] = {'pos': word_pos, 'word_index':word_index, 'next_pos': next_word_pos, 'next_word_index': next_word_index, 'count': 1}
 
-        save_pos_tags_to_json(pos_tags, pos_tags_file)
+        save_to_json(pos_tags, pos_tags_file)
 
 
 
-    # pos_translation = {
-    #     'NOUN': 'существительное',
-    #     'ADJF': 'прилагательное (полное)',
-    #     'ADJS': 'прилагательное (краткое)',
-    #     'COMP': 'компаратив',
-    #     'VERB': 'глагол (личная форма)',
-    #     'INFN': 'глагол (инфинитив)',
-    #     'PRTF': 'причастие (полное)',
-    #     'PRTS': 'причастие (краткое)',
-    #     'GRND': 'деепричастие',
-    #     'NUMR': 'числительное',
-    #     'ADVB': 'наречие',
-    #     'NPRO': 'местоимение-существительное',
-    #     'PRED': 'предикатив',
-    #     'PREP': 'предлог',
-    #     'CONJ': 'союз',
-    #     'PRCL': 'частица',
-    #     'INTJ': 'междометие'
-    # }
-
-    # for key, data in pos_tags.items():
-    #     word_pos, index, next_word_pos = key.split('_')
-    #     translated_pos = pos_translation.get(data['pos'], 'неизвестная часть речи')
-    #     print(f"{word_pos} (индекс: {index}, следующее слово: {next_word_pos}): {translated_pos}, повторений: {data['count']}")
