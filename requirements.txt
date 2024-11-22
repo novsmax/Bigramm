@@ -1,0 +1,5 @@
+pymorphy3==0.9.1
+nltk==3.6.3
+graphviz==0.16
+requests==2.26.0
+python-dotenv==0.19.0
